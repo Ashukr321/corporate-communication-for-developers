@@ -58,3 +58,30 @@ The fastest way to sound professional: replace the casual version with the corpo
 1. Skim [daily-office-terms](01-corporate-communication/daily-office-terms.md) and [abbreviations](05-common-abbreviations/) first.
 2. Read the meeting section before your next standup or sprint planning.
 3. Copy templates from [real-world examples](07-real-world-examples/) and adapt them.
+
+## Website — DevSpeak
+
+Every guide in this repo is also published as a searchable docs site in [`website/`](website/) (Next.js 16, Tailwind v4):
+
+- **Ctrl / ⌘ + K** command palette ([cmdk](https://cmdk.paco.me)) to jump to any guide
+- Light / dark theme, collapsible sidebar, mobile drawer
+- **PWA** — installable, works offline (service worker + manifest + icons)
+- **SEO** — per-page metadata, canonical URLs, Open Graph / Twitter cards, JSON-LD, `sitemap.xml`, `robots.txt`
+- Pages are prerendered straight from the markdown in this repo — edit a `.md` file and rebuild
+
+Run locally:
+
+```bash
+cd website
+npm install
+npm run dev        # http://localhost:3000
+```
+
+Run with Docker:
+
+```bash
+cd website
+docker compose up --build   # http://localhost:3000
+```
+
+Set `NEXT_PUBLIC_APP_URL` to your public URL before building for production so canonical links and the sitemap point at it.

@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #ffffff;
+  --panel: #f7f7f8;
+  --card: #fafafa;
+  --border: #e6e6e9;
+  --fg: #0a0a0b;
+  --muted: #5f6370;
+  --accent: #4f46e5;
+  --hover: #efeff2;
+}
+
+.dark {
+  --bg: #0b0b0c;
+  --panel: #111113;
+  --card: #141416;
+  --border: #232327;
+  --fg: #f4f4f5;
+  --muted: #a1a1aa;
+  --accent: #818cf8;
+  --hover: #1c1c20;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-card: var(--card);
+  --color-line: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-hover: var(--hover);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+/* Smooth sidebar accordion (Chromium; other browsers just open instantly) */
+:root {
+  interpolate-size: allow-keywords;
+}
+details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: block-size 0.3s ease, opacity 0.3s ease, content-visibility 0.3s allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  details::details-content,
+  aside {
+    transition: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Rendered markdown */
+.prose {
+  line-height: 1.75;
+  color: var(--fg);
+}
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2.25rem 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+.prose h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.5rem;
+}
+.prose p,
+.prose ul,
+.prose ol,
+.prose table,
+.prose blockquote,
+.prose pre {
+  margin: 0 0 1rem;
+}
+.prose ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+}
+.prose ol {
+  list-style: decimal;
+  padding-left: 1.4rem;
+}
+.prose li {
+  margin: 0.25rem 0;
+}
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose strong {
+  font-weight: 650;
+}
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--hover);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.1rem 0.35rem;
+}
+.prose pre {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.prose pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--panel);
+  border-radius: 0 10px 10px 0;
+  padding: 0.75rem 1rem;
+  color: var(--fg);
+}
+.prose blockquote p:last-child {
+  margin: 0;
+}
+.prose table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+}
+.prose th,
+.prose td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.prose th {
+  background: var(--panel);
+  font-weight: 600;
+}
+.prose hr {
+  border-color: var(--border);
+  margin: 2rem 0;
+}

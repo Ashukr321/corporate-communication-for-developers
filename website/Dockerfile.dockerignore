@@ -1,0 +1,15 @@
+# Used automatically by BuildKit for website/Dockerfile (build context = repo root).
+**/node_modules
+**/.next
+**/.git
+**/.env
+**/.env.*
+!**/.env.example
+**/*.log
+**/coverage
+**/.vscode
+**/.claude
+**/.husky
+resources
+website/Dockerfile*
+website/docker-compose.yml
